@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-display: 'Syne', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+  --black: #080810;
+  --black2: #0e0e18;
+  --black3: #141422;
+  --surface: #1c1c2e;
+  --surface2: #24243a;
+  --surface3: #2e2e48;
+  --line: rgba(255,255,255,0.07);
+  --line2: rgba(255,255,255,0.12);
+  --text: #f0f0f8;
+  --text2: #9090b0;
+  --text3: #505070;
+  --accent: #ff3d7f;
+  --accent2: #ff6b35;
+  --gold: #ffd700;
+  --green: #00e57a;
+  --red: #ff4466;
+  --purple: #9d6bff;
+  --grad: linear-gradient(135deg, #ff3d7f, #ff6b35);
+  --nav-h: 64px;
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Hide scrollbar */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Scroll snap feed */
+.snap-container {
+  scroll-snap-type: y mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+.snap-item {
+  scroll-snap-align: start;
+}
+
+/* Gradient text */
+.grad-text {
+  background: var(--grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Animations */
+@keyframes pulseBar {
+  0% { height: 8px; }
+  100% { height: 28px; }
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-120px); opacity: 0; }
+}
+
+@keyframes popHeart {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.35); }
+  100% { transform: scale(1); }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideIn {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-slide-up { animation: slideUp 0.35s cubic-bezier(0.4,0,0.2,1) forwards; }
+.animate-slide-in { animation: slideIn 0.35s cubic-bezier(0.4,0,0.2,1) forwards; }
+.animate-fade-in  { animation: fadeIn 0.3s ease forwards; }
+.animate-pop      { animation: popHeart 0.3s ease; }
+.animate-float    { animation: floatUp 1.2s ease-out forwards; }
+
+/* Screen transitions */
+.screen-enter { animation: slideIn 0.35s cubic-bezier(0.4,0,0.2,1) forwards; }
+.screen-exit  { animation: slideIn 0.35s cubic-bezier(0.4,0,0.2,1) reverse forwards; }
